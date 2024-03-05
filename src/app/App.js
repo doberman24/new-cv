@@ -44,10 +44,10 @@ function App() {
           <div className="absolute self-center w-0.5 h-0.5 right-0 left-0 m-auto bg-white z-[3] animate-[screenScan_1s_0.3s_forwards]"></div>
         </div>
         <ModalAbout handleModul={modal} closeModal={closeModalAbout}/>
-        <div className="flex w-full h-full items-center justify-center">
+        <div className="flex w-full h-full justify-center">
           {getPage(page)}
         </div>
-        <div className="flex flex-col w-28 justify-between items-center bg">
+        <div className="fixed h-screen right-0 flex flex-col w-28 justify-between items-center bg">
           <div className={`relative ${modal ? '-z-10' : 'z-0'} duration-300`}>
             <button className="bg-neutral-200 dark:bg-neutral-800 p-4 rounded-full mt-5 hover:bg-neutral-300 duration-300 dark:hover:bg-neutral-700 outline-none"
               onClick={() => mainTheme ? setMainTheme('') : setMainTheme('dark')}
