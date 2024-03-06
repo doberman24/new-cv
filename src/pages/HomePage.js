@@ -2,7 +2,7 @@ import { moreBtn } from "../config/AddElements";
 
 const HomePage = ({openModalAbout, modal}) => {
     return (
-        <div className="flex flex-grow h-full items-center relative">
+        <div className="flex flex-grow h-screen items-center relative">
             <div className="absolute h-full w-[530px] bg-[#ffa500] -z-10 skew-x-[15deg] -ml-36 animate-[backEffect_0.5s_forwards]"></div>
             <div className="flex relative w-full items-center h-[600px] animate-[startPages_0.5s_forwards]">
                 <div className={`box-content px-[4%] w-1/3 ${modal ? '-z-10' : 'z-0'}`}>
