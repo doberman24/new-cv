@@ -1,4 +1,5 @@
 import { addSkills, expEdu, moreBtn, personalData, skills } from "../config/AddElements";
+import cv from '../img/face.jpg';
 
 const AboutPage = () => {
   return (
@@ -25,10 +26,12 @@ const AboutPage = () => {
               )}
             </ul>
           </article>
-          <div className="fillMoreBtn effectFillMoreBtn relative flex bg-white dark:bg-neutral-900 border border-[#ffa500] h-14 w-60 justify-center items-center rounded-full mt-8">
+          <a href={cv} download='CV' 
+            className="fillMoreBtn effectFillMoreBtn relative flex bg-white dark:bg-neutral-900 border border-[#ffa500] h-14 w-60 justify-center items-center rounded-full mt-8"
+          >
             <button className="font-Commissioner rounded-full uppercase font-bold flex flex-grow justify-center items-center h-full text-sm z-[1] focus:outline-none">Скачать резюме</button>
             <span className="flex cursor-pointer rounded-full justify-center items-center p-4 bg-[#ffa500] z-[1]">{moreBtn.down}</span>
-          </div>                        
+          </a>                        
 
       </section>
       <section className="my-28">
