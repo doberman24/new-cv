@@ -28,11 +28,12 @@ module.exports = {
         },
         screenScan: {
           '0%': {height: '1px'},
-          '99%': {height: '100%'},
+          '99%': {height: '100%', width: '2px'},
           '100%': {
             opacity: 1,
             height: '100%',
             display: 'none',
+            width: 0,
           },
         },
         switchOnDisplay: {

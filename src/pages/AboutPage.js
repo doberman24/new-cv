@@ -2,8 +2,9 @@ import { addSkills, expEdu, moreBtn, personalData, skills } from "../config/AddE
 import cv from '../img/face.jpg';
 
 const AboutPage = () => {
+
   return (
-    <div className="flex flex-col font-jura text-neutral-600 dark:text-neutral-400 relative w-[1180px] animate-[startPages_0.5s_forwards]">
+    <div className="flex flex-col font-jura text-neutral-600 dark:text-neutral-400 relative w-[1180px] mx-10 animate-[startPages_0.5s_forwards]">
       <section className="flex h-52 justify-center items-center uppercase font-Commissioner">
           <h1 className="text-[4rem] font-extrabold">Обо <strong className="text-[#ffa500]">мне</strong></h1>
           <h1 className="absolute text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Резюме</h1>
@@ -45,8 +46,11 @@ const AboutPage = () => {
                     {key}
                     <div className="text-2xl font-normal">{`${value[0]}%`}</div>
                   </div>
-                  <div className="h-2 bg-slate-200 dark:bg-neutral-700 duration-300">
-                    <div className={`h-full bg-[#ffa500] w-[${value[0]}%]`}></div>
+                  <div className="h-2 w-full bg-slate-200 dark:bg-neutral-700 duration-300">
+                    <div 
+                      className={`h-full bg-[#ffa500]`} 
+                      style={{width: `${value[0]}%`}}
+                    ></div>
                   </div>
                   <ul className="grid grid-cols-2 gap-x-3 mt-3">
                     {value.map((item, count) => {
