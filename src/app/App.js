@@ -4,23 +4,31 @@ import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import PortfolioPage from "../pages/PortfolioPage";
 import ContactPage from "../pages/ContactPage";
-import ModalAbout from "../pages/components/ModalAbout";
+import Modal from "../pages/components/Modal";
 
 function App() {
 
   const [effectSideMenu, setEffectSideMenu] = useState(-1);
   const [page, setPage] = useState(currentPage.homePage)
   const [modal, setModal] = useState(false);
+  const [pageModal, setPageModal] = useState('home')
   const [mainTheme, setMainTheme] = useState('');
+  let [selectProject, setSelectProject] = useState({});
 
   function getPage(page) {
     switch (page) {
       case currentPage.homePage:
-        return <HomePage openModalAbout={openModalAbout} modal={modal}/>
+        return <HomePage 
+                openModalAbout={openModalAbout} 
+                modal={modal}
+              />
       case currentPage.aboutPage:
         return <AboutPage />
       case currentPage.portfolioPage:
-        return <PortfolioPage />
+        return <PortfolioPage 
+                openModalAbout={openModalAbout} 
+                modal={modal}
+              />
       case currentPage.contactPage:
         return <ContactPage />
       default:
@@ -28,8 +36,10 @@ function App() {
     }
   }
 
-  function openModalAbout() {
+  function openModalAbout(modalPage, project) {
     setModal(true);
+    setPageModal(modalPage);
+    setSelectProject(project);
   }
   function closeModalAbout() {
     setModal(false);
@@ -43,7 +53,7 @@ function App() {
           <div className="h-full w-1/2 bg-black z-[2] animate-[switchOnDisplay_0.5s_1.3s_forwards]"></div>
           <div className="absolute self-center w-0.5 h-0.5 right-0 left-0 m-auto bg-white z-[3] animate-[screenScan_1s_0.3s_forwards]"></div>
         </div>
-        <ModalAbout handleModul={modal} closeModal={closeModalAbout}/>
+        <Modal handleModul={modal} closeModal={closeModalAbout} pageModal={pageModal} selectProject={selectProject}/>
         <div className="flex w-full h-full mr-28 justify-center">
           {getPage(page)}
         </div>

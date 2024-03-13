@@ -13,7 +13,16 @@ module.exports = {
         MontsAlt: ["Montserrat Alternates", "sans-serif"]
       },
       backgroundImage: {
-        'my-photo' : "url('/src/img/face.jpg')"
+        'my-photo': "url('/src/img/face.jpg')",
+        'calc': "url('/src/img/calc.png')",
+        'calc_react': "url('/src/img/calc_react.png')",
+        'lavka': "url('/src/img/lavka.png')",
+        'memory': "url('/src/img/memory.png')",
+        'architect': "url('/src/img/architect.png')",
+        'tmp': "url('/src/img/bg.jpg')",
+        'weather': "url('/src/img/weather.png')",
+        'newbegin': "url('/src/img/newbegin.png')",
+        'cars': "url('/src/img/cars.png')",
       },
       keyframes: {
         ringEffect: {

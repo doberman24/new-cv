@@ -1,6 +1,11 @@
 import { moreBtn } from "../config/AddElements";
 
 const HomePage = ({openModalAbout, modal}) => {
+
+    const clickEvent = () => {
+        openModalAbout('home');
+    }
+
     return (
         <div className="flex flex-grow h-screen items-center relative">
             <div className="absolute h-full w-[530px] bg-[#ffa500] -z-10 skew-x-[15deg] -ml-36 animate-[backEffect_0.5s_forwards]"></div>
@@ -16,7 +21,7 @@ const HomePage = ({openModalAbout, modal}) => {
                         </ul>
                         <p className="font-jura text-[1.1rem] leading-9 text-neutral-500 dark:text-neutral-400 font-medium my-4 -z-10">Я начинающий front-end разрабочик, и уже начал свой путь в мире web-разработки. Моя цель - стать профессионалом в этой области и создавать удобные и функциональные интерфейсы для web-приложений и сайтов.</p>
                         <div className="fillMoreBtn effectFillMoreBtn relative flex bg-white dark:bg-neutral-900 border border-[#ffa500] h-14 w-60 justify-center items-center rounded-full mt-8"
-                            onClick={openModalAbout}
+                            onClick={clickEvent}
                         >
                             <button className="font-Commissioner rounded-full uppercase font-bold flex flex-grow justify-center items-center h-full text-sm z-[1] focus:outline-none">узнать больше</button>
                             <span className="flex cursor-pointer rounded-full justify-center items-center p-4 bg-[#ffa500] z-[1]">{moreBtn.arrow}</span>
