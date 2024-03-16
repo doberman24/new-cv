@@ -108,74 +108,82 @@ export const icons = {
   export const projects = [
     {
       'name': 'Простой калькулятор',
-      'preview': 'calc.samanig.ru',
+      'preview': 'calc.lixit.ru',
       'picUrl': 'bg-calc',
       'purpose': 'Учебный проект',
       'type': 'Веб-приложение',
       'stek': 'HTML, CSS, JavaScript',
+      'sort': 'js',
       'description': 'Калькулятор с простым функционалом обычного калькулятора. Логика написана на JavaScript. Небольшой проект для практики с DOM-структурой и событиями.',
     },
     {
       'name': 'Прогноз погоды',
-      'preview': 'weather.samanig.ru' ,
+      'preview': 'weather.lixit.ru' ,
       'picUrl': 'bg-weather',
       'purpose': 'Учебный проект',
       'type': 'Веб-приложение',
       'stek': 'HTML, CSS, JavaScript',
+      'sort': 'js',
       'description': 'Приложение прогноза погоды на текущее время и ближайщие 4 дня. Логика на Javascript. Практика использования асинхронных функции async/await и простых сетевых запросов с помощью fetch. А также, практика с адаптивностью.',
     },
     {
       'name': 'База автомобилей',
-      'preview': 'cars.samanig.ru' ,
+      'preview': 'cars.lixit.ru' ,
       'picUrl': 'bg-cars',
       'purpose': 'Учебный проект',
       'type': 'Веб-приложение',
       'stek': 'React, Node.js',
+      'sort': 'react, full',
       'description': 'Поиск автомобилей в базе данных, добавление, удаление, изменение данных. Приложение написано на ReactJS в качестве фронтенда, а для бекенда используется node.js. Практика работы с React, Node, MySQL и создание полноценного приложения.',
     },
     {
       'name': 'Мессенджер',
-      'preview': 'messenger.samanig.ru' ,
-      'picUrl': 'bg-tmp',
+      'preview': 'messenger.lixit.ru' ,
+      'picUrl': 'bg-messenger',
       'purpose': 'Учебный проект',
       'type': 'Веб-приложение',
       'stek': 'HTML, CSS, JavaScript, Node.js',
+      'sort': 'js, full',
       'description': 'Простенький мессенджер на JavaScript. Запросы отправляются на сервер, который возвращет ответ. Елементарный сервер на node.js и express, который возвращает 1 из 3-х ответов. Цель - попрактиковаться с JS, с node.js, и использовать сетевые заросы. В планах на сервер добавить нейросеть для ответов на вопросы',
     },
     {
       'name': 'Лавка',
-      'preview': 'lavka.samanig.ru' ,
+      'preview': 'lavka.lixit.ru' ,
       'picUrl': 'bg-lavka',
       'purpose': 'Собственный проект',
       'type': 'Веб-сайт',
       'stek': 'HTML, CSS',
+      'sort': 'landing',
       'description': 'Разработка статичного лендинга на HTML и CSS для магазиана-лавки.',
     },
     {
       'name': 'Игра Memory',
-      'preview': 'memory.samanig.ru' ,
+      'preview': 'memory.lixit.ru' ,
       'picUrl': 'bg-memory',
       'purpose': 'Учебный проект',
       'type': 'Веб-приложение',
       'stek': 'React',
+      'sort': 'react',
       'description': 'Проект взят из курсов HTML Academy. Пиложение на ReactJS. Практика работы с React Hooks, обработкой событий и разворачивания приложения на React. В планах переделать приложение - добавить большье функционала и разнообразия.',
     },
     {
-      'name': 'Калькулятор на ReactJS',
-      'preview': 'calculator.samanig.ru' ,
+      'name': 'Калькулятор на React',
+      'preview': 'calculator.lixit.ru' ,
       'picUrl': 'bg-calc_react',
       'purpose': 'Учебный проект',
       'type': 'Веб-приложение',
       'stek': 'React',
+      'sort': ['react'],
       'description': 'Еще один калькулятор, но на ReactJS. Практика работы с размещение компонентов, React Hooks, обработкой событий.',
     },
     {
       'name': 'Мой сайт-портфолио',
       'preview': 'cv' ,
-      'picUrl': 'bg-tmp',
+      'picUrl': 'bg-cv',
       'purpose': 'Собственный проект',
       'type': 'Веб-сайт',
       'stek': 'React, Tailwind',
+      'sort': 'react',
       'description': 'Проект-портфолио. Написан на React, для стилей используется Tailwind. Практика работы с данными библиотеками и создание полноценного сайта-резюме.',
     },
     {
@@ -185,6 +193,7 @@ export const icons = {
       'purpose': 'Обучающая верстка',
       'type': 'Веб-сайт',
       'stek': 'HTML, CSS',
+      'sort': 'landing',
       'description': 'Один из первых шаблонов, написанных с использованием HTML и CSS. Практика верстки сайта.',
     },
     {
@@ -194,6 +203,36 @@ export const icons = {
       'purpose': 'Обучающая верстка',
       'type': 'Веб-сайт',
       'stek': 'HTML, CSS, Javascript',
+      'sort': 'js, landing',
       'description': 'Еще один шаблон. Практика верстки, а также работа с отзывчивостью элементов при помощи JavaScript',
     },
   ];
+
+export const sortMenu = {
+  '': 'все', 
+  'react': 'react', 
+  'js': 'js',
+  'landing': 'лендинги',
+  'full': 'фулстек'
+};
+
+export const picProj = {
+  'type':
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+    </svg>,
+  'stek':
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+    </svg>,
+  'preview':
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125Z" />
+    </svg>,
+  'purpose':
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    </svg>,
+}
+
+

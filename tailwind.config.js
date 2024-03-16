@@ -19,10 +19,11 @@ module.exports = {
         'lavka': "url('/src/img/lavka.png')",
         'memory': "url('/src/img/memory.png')",
         'architect': "url('/src/img/architect.png')",
-        'tmp': "url('/src/img/bg.jpg')",
+        'cv': "url('/src/img/cv.jpg')",
         'weather': "url('/src/img/weather.png')",
         'newbegin': "url('/src/img/newbegin.png')",
         'cars': "url('/src/img/cars.png')",
+        'messenger': "url('/src/img/messenger.png')"
       },
       keyframes: {
         ringEffect: {

@@ -1,27 +1,7 @@
-import { cross } from "../../config/AddElements";
+import { cross, picProj } from "../../config/AddElements";
 import AboutPage from "../AboutPage";
 
 const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
-
-  // const ref = useRef();
-  // useEffect(() => {
-  //   const checkIfClickedOutside = (evt) => {
-  //     if (ref.current && !ref.current.contains(evt.target)) {
-  //       closeModal()
-  //     }
-  //   }
-  //   document.addEventListener('click', checkIfClickedOutside)
-  //   return () => {
-  //     document.removeEventListener('click', checkIfClickedOutside)
-  //   }
-  // }, [closeModal])
-
-  // useEffect(() => {
-  //   document.body.style.overflow = "hidden"
-  //   return () => {
-  //     document.body.style.overflow = "auto"
-  //   }
-  // }, [])
 
   return (
     <div className={`fixed ${handleModul ? 'opacity-100 z-[1]' : 'opacity-0 z-0'} duration-300 size-full flex justify-center items-center`}>
@@ -44,37 +24,47 @@ const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
   )
 }
 
+
 const PortfolioModal = ({selectProject}) => {
   return (
     <section className="flex justify-center items-center size-full rounded-2xl z-0">
       <article className="flex flex-col items-center justify-between size-11/12 rounded-xl">
         <div className="flex flex-col items-center">
           <h1 className="text-4xl text-[#ffa500] tracking-wider font-Commissioner mt-5 uppercase font-bold">{selectProject.name}</h1>
-          <ul className="grid grid-cols-2 font-jura my-5">
-            <li className="mb-1.5"><span className=" font-bold text-neutral-800 dark:text-neutral-300 duration-300">Проект: </span>
-              {selectProject.type}
+          <ul className="grid grid-cols-2 font-jura my-5 text-[0.9rem] text-neutral-600 dark:text-neutral-400">
+            <li className="mb-1.5 flex items-center">
+              <span className="mr-3">{picProj.type}</span>
+              <span className="mr-3">Проект: </span>
+              <b className="text-neutral-800 dark:text-neutral-300 duration-300">{selectProject.type}</b>
             </li>
-            <li className="mb-1.5"><span className=" font-bold text-neutral-800 dark:text-neutral-300 duration-300">Стек: </span>
-              {selectProject.stek}
+            <li className="mb-1.5 flex items-center">
+              <span className="mr-3">{picProj.stek}</span>
+              <span className="mr-3">Стек: </span>
+              <b className="text-neutral-800 dark:text-neutral-300">{selectProject.stek}</b>
             </li>
-            <li className="mb-1.5"><span className=" font-bold text-neutral-800 dark:text-neutral-300 duration-300">Перейти: </span>
-              <a 
-                className="text-[#ffa500]" 
-                href={`http://${selectProject.preview}`}
+            <li className="mb-1.5 flex items-center">
+              <span className="mr-3">{picProj.preview}</span>
+              <span className="mr-3">Перейти: </span>
+              <a
+                className="text-[#ffa500] flex font-bold" 
+                href={`https://${selectProject.preview}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {selectProject.preview}</a>
             </li>
-            <li className="mb-1.5"><span className=" font-bold text-neutral-800 dark:text-neutral-300 duration-300">Назначение: </span>
-              {selectProject.purpose}
+            <li className="mb-1.5 flex items-center">
+              <span className="mr-3">{picProj.purpose}</span>
+              <span className="mr-3">Назначение: </span>
+              <b className=" text-neutral-800 dark:text-neutral-300 duration-300">{selectProject.purpose}</b>
             </li>
-            <li className="col-start-1 col-end-3"><span className=" font-bold text-neutral-800 dark:text-neutral-300 duration-300">Описание: </span>
+            <li className="mt-2 col-start-1 col-end-3">
+              <span className="mr-3 font-bold text-neutral-800 dark:text-neutral-300 duration-300">Описание:</span>
               {selectProject.description}
             </li>
           </ul>
         </div>
-        <div className={`w-full h-[300px] rounded-xl ${selectProject.picUrl} bg-cover`}></div>
+        <div className={`w-full h-[300px] rounded-xl ${selectProject.picUrl} bg-cover bg-center`}></div>
       </article>
     </section>
   )
