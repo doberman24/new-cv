@@ -16,8 +16,8 @@ const PortfolioPage = ({openModalAbout, modal}) => {
             <section>
                 <div className="flex w-full justify-center">
                     <ul className="flex uppercase font-Commissioner text-lg gap-6 font-semibold">
-                        {Object.entries(sortMenu).map(([key,value]) => 
-                            <li className={`${sortValue === key ? 'text-[#ffa500]' : 'text-neutral-600 dark:text-neutral-400'} duration-300 cursor-pointer`}
+                        {Object.entries(sortMenu).map(([key,value], count) => 
+                            <li key={count} className={`${sortValue === key ? 'text-[#ffa500]' : 'text-neutral-600 dark:text-neutral-400'} duration-300 cursor-pointer`}
                                 onClick={() => {
                                     setReload(true);
                                     setSortValue(key);

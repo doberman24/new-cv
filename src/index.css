@@ -13,5 +13,5 @@
     @apply before:content-[''] before:duration-300 before:absolute before:bg-[#ffa500] before:h-full before:w-0 before:top-0 before:right-[30px] before:rounded-l-full;
 }
 .effectFillMoreBtn {
-    @apply before:hover:w-full before:hover:right-0 before:hover:rounded-full before:hover:duration-300 hover:text-white hover:duration-300 duration-300;
+    @apply before:hover:w-full before:hover:right-0 before:hover:rounded-full hover:text-white duration-300;
 }

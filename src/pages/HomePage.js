@@ -1,4 +1,4 @@
-import { moreBtn } from "../config/AddElements";
+import { activeBtn } from "../config/AddElements";
 
 const HomePage = ({openModalAbout, modal}) => {
 
@@ -24,7 +24,7 @@ const HomePage = ({openModalAbout, modal}) => {
                             onClick={clickEvent}
                         >
                             <button className="font-Commissioner rounded-full uppercase font-bold flex flex-grow justify-center items-center h-full text-sm z-[1] focus:outline-none">узнать больше</button>
-                            <span className="flex cursor-pointer rounded-full justify-center items-center p-4 bg-[#ffa500] z-[1]">{moreBtn.arrow}</span>
+                            <span className="flex cursor-pointer rounded-full justify-center items-center p-4 bg-[#ffa500] z-[1]">{activeBtn.arrow}</span>
                         </div>                        
                     </div>
                 </div>
