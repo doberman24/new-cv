@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projects, sortMenu } from "../config/AddElements";
+import { projects, sortProjectMenu } from "../data/data";
 
 const PortfolioPage = ({openModalAbout, modal}) => {
 
@@ -16,7 +16,7 @@ const PortfolioPage = ({openModalAbout, modal}) => {
             <section>
                 <div className="flex w-full justify-center">
                     <ul className="flex uppercase font-Commissioner text-lg gap-6 font-semibold">
-                        {Object.entries(sortMenu).map(([key,value], count) => 
+                        {Object.entries(sortProjectMenu).map(([key,value], count) => 
                             <li key={count} className={`${sortValue === key ? 'text-[#ffa500]' : 'text-neutral-600 dark:text-neutral-400'} duration-300 cursor-pointer`}
                                 onClick={() => {
                                     setReload(true);

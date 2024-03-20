@@ -1,4 +1,5 @@
-import { addSkills, expEdu, activeBtn, personalData, skills } from "../config/AddElements";
+import { addSkills, personalData, skills } from "../data/data";
+import { experienceEducationPicture, activeBtn } from "../data/icons";
 import cv from '../img/face.jpg';
 
 const AboutPage = () => {
@@ -97,7 +98,7 @@ const AboutPage = () => {
           <h1 className="text-center font-Commissioner font-medium text-4xl uppercase mb-10">Опыт работы</h1>
           <ul>
             <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
-              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{expEdu.exp}</div>
+              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.exp}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">июнь 2021 - наст. время</div>
               <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[1.1rem]">
                 <strong className="text-xl">Инженер технической поддержки - </strong>
@@ -111,7 +112,7 @@ const AboutPage = () => {
               </div>
             </li>
             <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
-              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{expEdu.exp}</div>
+              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.exp}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">2014 - 2021</div>
               <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[1.1rem] mb-5 leading-7">
                 <strong className="text-xl">Строитель кораблей - </strong>
@@ -129,7 +130,7 @@ const AboutPage = () => {
           <h1 className="text-center font-Commissioner font-medium text-4xl uppercase mb-10">Образование</h1>
           <ul>
             <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
-              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{expEdu.edu}</div>
+              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.edu}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">2008 - 2014</div>
               <div className="mt-2">
                 <strong className="font-medium">
@@ -141,7 +142,7 @@ const AboutPage = () => {
               <div>Вычислительные машины, комплексы, системы и сети. </div> 
             </li>
             <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
-              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{expEdu.edu}</div>
+              <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.edu}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">1999 - 2002</div>
               <div className="mt-2">
                 <strong className="font-medium">

@@ -1,4 +1,4 @@
-import { cross, picProj } from "../../config/AddElements";
+import { modalClose, modalDescriptionProject } from "../../data/icons";
 import AboutPage from "../AboutPage";
 
 const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
@@ -11,7 +11,7 @@ const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
           <button className="absolute text-neutral-300 border-neutral-300 dark:text-neutral-500 dark:border-neutral-500 top-0 right-0 border-4 rounded-full p-2"
             onClick={closeModal}
           >
-            {cross.exit}
+            {modalClose.exit}
           </button>
         </div>
         <div className="size-full overflow-auto">
@@ -33,17 +33,17 @@ const PortfolioModal = ({selectProject}) => {
           <h1 className="text-4xl text-[#ffa500] tracking-wider font-Commissioner mt-5 uppercase font-bold">{selectProject.name}</h1>
           <ul className="grid grid-cols-2 font-jura my-5 text-[0.9rem] text-neutral-600 dark:text-neutral-400">
             <li className="mb-1.5 flex items-center">
-              <span className="mr-3">{picProj.type}</span>
+              <span className="mr-3">{modalDescriptionProject.type}</span>
               <span className="mr-3">Проект: </span>
               <b className="text-neutral-800 dark:text-neutral-300 duration-300">{selectProject.type}</b>
             </li>
             <li className="mb-1.5 flex items-center">
-              <span className="mr-3">{picProj.stek}</span>
+              <span className="mr-3">{modalDescriptionProject.stek}</span>
               <span className="mr-3">Стек: </span>
               <b className="text-neutral-800 dark:text-neutral-300">{selectProject.stek}</b>
             </li>
             <li className="mb-1.5 flex items-center">
-              <span className="mr-3">{picProj.preview}</span>
+              <span className="mr-3">{modalDescriptionProject.preview}</span>
               <span className="mr-3">Перейти: </span>
               <a
                 className="text-[#ffa500] flex font-bold" 
@@ -54,7 +54,7 @@ const PortfolioModal = ({selectProject}) => {
                 {selectProject.preview}</a>
             </li>
             <li className="mb-1.5 flex items-center">
-              <span className="mr-3">{picProj.purpose}</span>
+              <span className="mr-3">{modalDescriptionProject.purpose}</span>
               <span className="mr-3">Назначение: </span>
               <b className=" text-neutral-800 dark:text-neutral-300 duration-300">{selectProject.purpose}</b>
             </li>

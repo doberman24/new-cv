@@ -1,4 +1,4 @@
-import { activeBtn } from "../config/AddElements";
+import { activeBtn } from "../data/icons";
 
 const HomePage = ({openModalAbout, modal}) => {
 

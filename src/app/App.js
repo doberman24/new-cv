@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { currentPage, icons, moon, sun,  } from "../config/AddElements";
+import { currentPage } from "../config/settings";
+import { buttonsRightMenu, themeButtons, } from "../data/icons";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import PortfolioPage from "../pages/PortfolioPage";
@@ -62,11 +63,11 @@ function App() {
             <button className="bg-neutral-200 dark:bg-neutral-800 p-4 rounded-full mt-5 hover:bg-neutral-300 duration-300 dark:hover:bg-neutral-700 outline-none"
               onClick={() => mainTheme ? setMainTheme('') : setMainTheme('dark')}
             >
-              {mainTheme ? sun.theme : moon.theme}
+              {mainTheme ? themeButtons.sun : themeButtons.moon}
             </button>
           </div>
           <ul className="flex flex-col flex-grow justify-center gap-5 pb-20">
-            {Object.entries(icons).map(([key, value], count) => 
+            {Object.entries(buttonsRightMenu).map(([key, value], count) => 
               <li className="flex relative items-center"
                 key={count} 
                 onMouseEnter={() => setEffectSideMenu(count)} 
