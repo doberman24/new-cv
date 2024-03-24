@@ -6,6 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'mobile': '450px',
+        'md-a': '980px',
+        'lg-a': '1150px',
+        'xl-a': '1350px',
+        '2xl-a': '1400px',
+      },
       fontFamily: {
         philosopher: ["Philosopher", "sans-serif"],
         jura: ["Jura", "sans-serif"],
@@ -34,6 +41,16 @@ module.exports = {
           '50%': {
             borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%',
             boxShadow: 'inset 0 0 0 30px rgba(255, 255, 255, .3), -10px -5px 50px rgba(0, 0, 0, .4)'
+          },
+        },
+        ringEffectMobil: {
+          '0%, 100%': {
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            boxShadow: 'inset 0 0 0 10px rgba(255, 255, 255, .3), 15px 15px 50px rgba(0, 0, 0, .4)'
+          },
+          '50%': {
+            borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%',
+            boxShadow: 'inset 0 0 0 10px rgba(255, 255, 255, .3), -10px -5px 50px rgba(0, 0, 0, .4)'
           },
         },
         screenScan: {
@@ -73,6 +90,7 @@ module.exports = {
       },
       animation: {
         ringEffect: 'ringEffect 8s ease-in-out infinite',
+        ringEffectMobil: 'ringEffectMobil 8s ease-in-out infinite',
         screenScan: ''
       },
     },

@@ -1,23 +1,45 @@
 import { useState } from "react";
 import { activeBtn, contactPicture } from "../data/icons";
 
-const ContactPage = () => {
+const ContactPage = ({openModalAbout, modal}) => {
 
-    const [dataMail, setDataMail] = useState({});
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
 
     const sendMail = (evt) => {
         evt.preventDefault();
-        setDataMail({
-            'name': evt.target.name.value,
-            'email': evt.target.email.value,
-            'subject': evt.target.subject.value,
-            'message': evt.target.message.value,
+        
+        fetch('http://localhost:3001/api', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                'name': name,
+                'email': email,
+                'subject': subject,
+                'message': message,
+            }),
         })
-        console.log(dataMail);
+        .then(response => response.json())
+        .then(data => {
+            setName('');
+            setEmail('');
+            setSubject('');
+            setMessage('');
+            console.log(data);
+            openModalAbout('contact', null, 'success');
+        })
+        .catch(error => {
+            console.error(error);
+            openModalAbout('contact', null, 'error');
+        })
     }
 
     return (
-        <div className="flex flex-col text-neutral-600 dark:text-neutral-400 relative w-[1180px] min-h-screen mx-12 animate-[startPages_0.5s_forwards]">
+        <div className={`${modal ? '-z-10' : 'z-0'} duration-300 flex flex-col text-neutral-600 dark:text-neutral-400 relative w-[1180px] min-h-screen xl-a:mx-12 ml-12 mr-28 animate-[startPages_0.5s_forwards]`}>
             <section className="flex h-52 justify-center items-center uppercase font-Commissioner mb-8">
                 <h1 className="text-[4rem] font-extrabold">Напишите <strong className="text-[#ffa500]">мне</strong></h1>
                 <h1 className="absolute text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Связаться</h1>
@@ -62,28 +84,32 @@ const ContactPage = () => {
                 </article>
                 <article className="w-2/3 min-w-96">
                     <form onSubmit={sendMail} method="post" className="flex w-full flex-col gap-y-8">
-                        <fieldset className="flex flex-nowrap gap-x-8">
+                        <fieldset className="flex flex-nowrap flex-col gap-y-8 lg-a:flex-row lg:gap-x-8">
                             <label className="flex border-2 rounded-full flex-grow h-14 dark:border-neutral-600 bg-white duration-300 dark:bg-neutral-900">
                                 <input className="rounded-full w-full px-7 bg-transparent focus:outline-[#ffa500] focus:outline-offset-0 outline-none dark:text-neutral-200 text-neutral-800 font-bold text-xl placeholder:text-base placeholder:uppercase placeholder:font-bold duration-300"
-                                    required id="name" type="text" placeholder="Ваше Имя" 
+                                    required id="name" type="text" placeholder="Ваше Имя"
+                                    value={name} onChange={(e) => setName(e.target.value)}
                                 />
                             </label>
                             <label className="flex border-2 rounded-full flex-grow h-14 dark:border-neutral-600 bg-white duration-300 dark:bg-neutral-900">
                                 <input className="rounded-full w-full px-7 bg-transparent focus:outline-[#ffa500] focus:outline-offset-0 outline-none dark:text-neutral-200 text-neutral-800 font-bold text-xl placeholder:text-base placeholder:uppercase placeholder:font-bold duration-300"
                                     required id="email" type="email" placeholder="Ваш Email" 
+                                    value={email} onChange={(e) => setEmail(e.target.value)}
                                 /> 
                             </label>
                         </fieldset>
                         <fieldset className="flex">
                             <label className="flex border-2 rounded-full flex-grow h-14 dark:border-neutral-600 bg-white duration-300 dark:bg-neutral-900">
                                 <input className="rounded-full w-full px-7 bg-transparent focus:outline-[#ffa500] focus:outline-offset-0 outline-none dark:text-neutral-200 text-neutral-800 font-bold text-xl placeholder:text-base placeholder:uppercase placeholder:font-bold duration-300"
-                                    id="subject" type="text" placeholder="Тема" 
+                                    id="subject" type="text" placeholder="Тема"
+                                    value={subject} onChange={(e) => setSubject(e.target.value)} 
                                 />
                             </label>
                         </fieldset>
                         <fieldset className="flex">
                             <textarea className="border-2 flex-grow rounded-3xl px-7 py-3 bg-transparent focus:outline-[#ffa500] -outline-offset-1 outline-none dark:text-neutral-200 dark:border-neutral-600 text-neutral-800 font-bold text-xl placeholder:text-base placeholder:uppercase placeholder:font-bold duration-300"
                                 required id="message" rows="6" placeholder="Введите Ваше сообщение..."
+                                value={message} onChange={(e) => setMessage(e.target.value)}
                             ></textarea>
                         </fieldset>
                         <button className="fillMoreBtn effectFillMoreBtn relative flex bg-transparent border border-[#ffa500] h-14 w-60 justify-center items-center rounded-full mt-8">

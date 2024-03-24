@@ -8,7 +8,7 @@ const PortfolioPage = ({openModalAbout, modal}) => {
     const [reload, setReload] = useState(false);
 
     return (
-        <div className={` ${modal ? '-z-10' : 'z-0'} flex flex-col text-neutral-600 dark:text-neutral-400 duration-300 relative w-[1180px] min-h-screen mx-12 animate-[startPages_0.5s_forwards]`}>
+        <div className={`${modal ? '-z-10' : 'z-0'} flex flex-col text-neutral-600 dark:text-neutral-400 duration-300 relative w-[1180px] min-h-screen xl-a:mx-12 ml-12 mr-28 animate-[startPages_0.5s_forwards]`}>
             <section className="flex h-52 justify-center items-center uppercase font-Commissioner">
                 <h1 className="text-[4rem] font-extrabold">Мои <strong className="text-[#ffa500]">проекты</strong></h1>
                 <h1 className="absolute text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Портфолио</h1>
@@ -30,7 +30,7 @@ const PortfolioPage = ({openModalAbout, modal}) => {
                     </ul>
                 </div>
                 <article className={`w-full mt-8 ${reload ? 'opacity-0' : 'opacity-100 duration-300'}`}>
-                    <ul className="grid grid-cols-3 justify-items-center gap-10">
+                    <ul className="grid lg:grid-cols-3 grid-cols-2 justify-items-center gap-10 xl-a:gap-x-10 lg:gap-x-5">
                         {projects.map((project, key) => {
                             if ((sortValue && (project.sort.indexOf(sortValue) >= 0)) || !sortValue)
                                 return (

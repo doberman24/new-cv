@@ -2,11 +2,10 @@ import { modalClose, modalDescriptionProject } from "../../data/icons";
 import AboutPage from "../AboutPage";
 
 const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
-
   return (
     <div className={`fixed ${handleModul ? 'opacity-100 z-[1]' : 'opacity-0 z-0'} duration-300 size-full flex justify-center items-center`}>
       <div className="absolute dark:bg-neutral-800 bg-black size-full opacity-70"></div>
-      <div className={`bg-white dark:bg-neutral-900 z-0 m-16 relative ${pageModal === 'home' ? 'w-[1280px] min-w-[800px] h-3/4 rounded-md' : 'w-[700px] h-[600px] rounded-2xl'}`}>
+      <div className={`bg-white dark:bg-neutral-900 z-0 m-16 relative ${pageModal === 'home' ? 'w-[1280px] min-w-[800px] 2xl-a:h-3/4 h-5/6 rounded-md' : pageModal === 'portfolio' ? 'w-[700px] h-[600px] rounded-2xl' : ' h-48 w-96 rounded-2xl'}`}>
         <div className="absolute size-full box-content pt-10 pr-14 bottom-0">
           <button className="absolute text-neutral-300 border-neutral-300 dark:text-neutral-500 dark:border-neutral-500 top-0 right-0 border-4 rounded-full p-2"
             onClick={closeModal}
@@ -16,7 +15,9 @@ const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
         </div>
         <div className="size-full overflow-auto">
           <div className={`flex ${pageModal === 'home' ? 'w-full' : 'size-full'} justify-center`}>
-            {pageModal === 'home' ? <AboutPage /> : <PortfolioModal selectProject={selectProject} />}
+            {pageModal === 'home' ? <AboutPage /> : 
+              pageModal === 'portfolio' ? <PortfolioModal selectProject={selectProject} /> : 
+              <SendMessageOk closeModal={closeModal} selectProject={selectProject}/>}
           </div>
         </div>
       </div>
@@ -65,6 +66,20 @@ const PortfolioModal = ({selectProject}) => {
           </ul>
         </div>
         <div className={`w-full h-[300px] rounded-xl ${selectProject.picUrl} bg-cover bg-center`}></div>
+      </article>
+    </section>
+  )
+}
+
+
+const SendMessageOk = ({closeModal, selectProject}) => {
+  return (
+    <section className="flex justify-center items-center size-full rounded-2xl z-0">
+      <article className="flex flex-col items-center justify-center mx-7 rounded-xl dark:text-neutral-400 text-neutral-600">
+        <div className={`font-jura text-lg font-bold mb-4 py-1 text-center rounded-lg ${selectProject === 'error' ? 'dark:bg-red-950 bg-red-300' : ''}`}>{`${selectProject === 'success' ? 'Сообщение успешно отправлено' : 'Произошла ошибка! Попробуйте позже.'}`}</div>
+        <button className="font-Commissioner font-semibold text-2xl bg-transparent w-44 h-12 border rounded-full border-[#ffa500] hover:bg-[#ffa500] hover:text-white duration-300"
+           onClick={closeModal} 
+        >OK</button>
       </article>
     </section>
   )

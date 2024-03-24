@@ -13,8 +13,8 @@ function App() {
   const [page, setPage] = useState(currentPage.homePage)
   const [modal, setModal] = useState(false);
   const [pageModal, setPageModal] = useState('home')
-  const [mainTheme, setMainTheme] = useState('');
-  let [selectProject, setSelectProject] = useState({});
+  const [mainTheme, setMainTheme] = useState('dark');
+  const [selectProject, setSelectProject] = useState({});
 
   function getPage(page) {
     switch (page) {
@@ -24,23 +24,27 @@ function App() {
                 modal={modal}
               />
       case currentPage.aboutPage:
-        return <AboutPage />
+        return <AboutPage pageModal={pageModal}/>
       case currentPage.portfolioPage:
         return <PortfolioPage 
                 openModalAbout={openModalAbout} 
                 modal={modal}
               />
       case currentPage.contactPage:
-        return <ContactPage />
+        return <ContactPage
+                openModalAbout={openModalAbout} 
+                modal={modal}
+              />
+
       default:
         return null;
     }
   }
 
-  function openModalAbout(modalPage, project) {
+  function openModalAbout(modalPage, project, status) {
     setModal(true);
     setPageModal(modalPage);
-    setSelectProject(project);
+    project ? setSelectProject(project) : setSelectProject(status);
   }
   function closeModalAbout() {
     setModal(false);
@@ -55,18 +59,18 @@ function App() {
           <div className="absolute self-center w-0.5 h-0.5 right-0 left-0 m-auto bg-white z-[3] animate-[screenScan_1s_0.3s_forwards]"></div>
         </div>
         <Modal handleModul={modal} closeModal={closeModalAbout} pageModal={pageModal} selectProject={selectProject}/>
-        <div className="flex w-full h-full mr-28 justify-center">
-          {getPage(page)}
-        </div>
-        <div className={`fixed h-screen right-0 flex flex-col w-28 justify-between items-center ${modal ? '-z-10' : '-z-[0]'} duration-300`}>
-          <div className="relative">
-            <button className="bg-neutral-200 dark:bg-neutral-800 p-4 rounded-full mt-5 hover:bg-neutral-300 duration-300 dark:hover:bg-neutral-700 outline-none"
+        <div className={`fixed right-0 ${modal ? '-z-10' : 'z-[1] duration-300'}`}>
+            <button className="bg-neutral-200 dark:bg-neutral-800 p-4 rounded-full m-7 hover:bg-neutral-300 duration-300 dark:hover:bg-neutral-700 outline-none"
               onClick={() => mainTheme ? setMainTheme('') : setMainTheme('dark')}
             >
               {mainTheme ? themeButtons.sun : themeButtons.moon}
             </button>
           </div>
-          <ul className="flex flex-col flex-grow justify-center gap-5 pb-20">
+        <div className="flex w-full h-full md-a:mr-28 justify-center">
+          {getPage(page)}
+        </div>
+        <div className={`fixed w-screen bottom-0 h-20 flex-row md-a:h-screen md-a:right-0 flex md-a:flex-col md-a:w-28 justify-between items-center ${modal ? '-z-10' : '-z-[0]'} duration-300`}>
+          <ul className="flex md-a:flex-col flex-grow justify-around md-a:justify-center gap-5">
             {Object.entries(buttonsRightMenu).map(([key, value], count) => 
               <li className="flex relative items-center"
                 key={count} 

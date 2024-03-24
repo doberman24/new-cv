@@ -2,10 +2,10 @@ import { addSkills, personalData, skills } from "../data/data";
 import { experienceEducationPicture, activeBtn } from "../data/icons";
 import cv from '../img/face.jpg';
 
-const AboutPage = () => {
+const AboutPage = ({pageModal}) => {
 
   return (
-    <div className="flex flex-col font-jura text-neutral-600 dark:text-neutral-400 relative w-[1180px] mx-10 animate-[startPages_0.5s_forwards]">
+    <div className={`flex flex-col font-jura text-neutral-600 dark:text-neutral-400 relative w-[1180px] xl-a:mx-10 ${pageModal ? 'ml-10 mr-28' : 'mx-10'} animate-[startPages_0.5s_forwards]`}>
       <section className="flex h-52 justify-center items-center uppercase font-Commissioner">
           <h1 className="text-[4rem] font-extrabold">Обо <strong className="text-[#ffa500]">мне</strong></h1>
           <h1 className="absolute text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Резюме</h1>
@@ -39,7 +39,7 @@ const AboutPage = () => {
       <section className="my-28">
         <article className="flex flex-col">
           <h1 className="text-center font-Commissioner font-medium text-4xl uppercase mb-10">Технические навыки</h1>
-          <ul className="grid grid-cols-2 gap-10">
+          <ul className="grid grid-cols-2 xl:gap-10 gap-y-10">
             {Object.entries(skills).map(([key, value], count) => 
               <li key={count} className={`w-11/12 ${count % 2 ? 'justify-self-end' : ''}`}>
                 <div>
@@ -53,7 +53,7 @@ const AboutPage = () => {
                       style={{width: `${value[0]}%`}}
                     ></div>
                   </div>
-                  <ul className="grid grid-cols-2 gap-x-3 mt-3">
+                  <ul className="grid grid-cols-2 gap-x-3 gap-y-1 mt-3 leading-[18px]">
                     {value.map((item, count) => {
                       if (count === 0)
                         return null
@@ -97,7 +97,7 @@ const AboutPage = () => {
         <article>
           <h1 className="text-center font-Commissioner font-medium text-4xl uppercase mb-10">Опыт работы</h1>
           <ul>
-            <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
+            <li className="xl:pl-16 pl-10 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
               <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.exp}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">июнь 2021 - наст. время</div>
               <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[1.1rem]">
@@ -111,7 +111,7 @@ const AboutPage = () => {
                 <p className="leading-6 mt-2">Выполнение переносов сайтов, которые поддерживают наш стек технологий, по запросу клиентов. Начиная от самых распространенных CMS, таких как Wordpress, Bitrix, Joomla, ModX и т.д., и заканчивая различными проектами с использованием php-фреймворков. А также разворачивание/перенос проектов на NodeJS, python-фреймворков и любых кастомных проектов </p>
               </div>
             </li>
-            <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
+            <li className="xl:pl-16 pl-10 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
               <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.exp}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">2014 - 2021</div>
               <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[1.1rem] mb-5 leading-7">
@@ -129,7 +129,7 @@ const AboutPage = () => {
         <article>
           <h1 className="text-center font-Commissioner font-medium text-4xl uppercase mb-10">Образование</h1>
           <ul>
-            <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
+            <li className="xl:pl-16 pl-10 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
               <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.edu}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">2008 - 2014</div>
               <div className="mt-2">
@@ -141,7 +141,7 @@ const AboutPage = () => {
                 <span className="uppercase">Национальный минерально-сырьевой университет «Горный»</span></div>
               <div>Вычислительные машины, комплексы, системы и сети. </div> 
             </li>
-            <li className="pl-16 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
+            <li className="xl:pl-16 pl-10 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-16 pr-8">
               <div className="absolute bg-[#ffa500] p-3 rounded-full -left-[22px]">{experienceEducationPicture.edu}</div>
               <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-sm leading-4 rounded-full mb-1.5">1999 - 2002</div>
               <div className="mt-2">
