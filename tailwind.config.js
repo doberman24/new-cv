@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        'mini': '390px',
         'mobile': '450px',
         'md-a': '980px',
         'lg-a': '1150px',
@@ -20,7 +21,7 @@ module.exports = {
         MontsAlt: ["Montserrat Alternates", "sans-serif"]
       },
       backgroundImage: {
-        'my-photo': "url('/src/img/face.jpg')",
+        'my-photo': "url('/src/img/photo.jpg')",
         'calc': "url('/src/img/calc.png')",
         'calc_react': "url('/src/img/calc_react.png')",
         'lavka': "url('/src/img/lavka.png')",

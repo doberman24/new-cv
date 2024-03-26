@@ -8,14 +8,14 @@ const PortfolioPage = ({openModalAbout, modal}) => {
     const [reload, setReload] = useState(false);
 
     return (
-        <div className={`${modal ? '-z-10' : 'z-0'} flex flex-col text-neutral-600 dark:text-neutral-400 duration-300 relative w-[1180px] min-h-screen xl-a:mx-12 ml-12 mr-28 animate-[startPages_0.5s_forwards]`}>
-            <section className="flex h-52 justify-center items-center uppercase font-Commissioner">
-                <h1 className="text-[4rem] font-extrabold">Мои <strong className="text-[#ffa500]">проекты</strong></h1>
-                <h1 className="absolute text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Портфолио</h1>
+        <div className={`${modal ? '-z-10' : 'z-0'} flex flex-col text-neutral-600 dark:text-neutral-400 duration-300 relative w-[1180px] min-h-screen sm:mx-10 md-a:ml-10 md-a:mr-28 mx-2 animate-[startPages_0.5s_forwards]`}>
+            <section className="flex sm:h-52 h-32 mobile:justify-center items-center uppercase font-Commissioner">
+                <h1 className="mobile:text-5xl sm:text-[4rem] text-4xl font-extrabold">Мои <strong className="text-[#ffa500]">проекты</strong></h1>
+                <h1 className="absolute text-5xl mobile:text-7xl sm:text-8xl md:text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Портфолио</h1>
             </section>
-            <section>
+            <section className="flex flex-col w-full">
                 <div className="flex w-full justify-center">
-                    <ul className="flex uppercase font-Commissioner text-lg gap-6 font-semibold">
+                    <ul className="flex uppercase font-Commissioner justify-center text-base flex-wrap mobile:text-lg mobile:gap-6 gap-4 font-semibold">
                         {Object.entries(sortProjectMenu).map(([key,value], count) => 
                             <li key={count} className={`${sortValue === key ? 'text-[#ffa500]' : 'text-neutral-600 dark:text-neutral-400'} duration-300 cursor-pointer`}
                                 onClick={() => {
@@ -30,12 +30,12 @@ const PortfolioPage = ({openModalAbout, modal}) => {
                     </ul>
                 </div>
                 <article className={`w-full mt-8 ${reload ? 'opacity-0' : 'opacity-100 duration-300'}`}>
-                    <ul className="grid lg:grid-cols-3 grid-cols-2 justify-items-center gap-10 xl-a:gap-x-10 lg:gap-x-5">
+                    <ul className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 justify-items-center gap-x-5 gap-y-10 md:gap-x-10 xl-a:gap-x-10 lg:gap-x-5">
                         {projects.map((project, key) => {
                             if ((sortValue && (project.sort.indexOf(sortValue) >= 0)) || !sortValue)
                                 return (
                                     <li key={key} 
-                                        className={`w-full h-52 rounded-md ${project.picUrl} bg-cover bg-center`}
+                                        className={`w-full h-52 mobile:h-72 sm:h-52 rounded-md ${project.picUrl} bg-cover bg-center`}
                                     >
                                         <button className="flex justify-center items-center size-full rounded-md hover:bg-[#ffa500] duration-300"
                                             onMouseEnter={() => setOnNameProject(key)}
