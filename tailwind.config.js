@@ -21,17 +21,17 @@ module.exports = {
         MontsAlt: ["Montserrat Alternates", "sans-serif"]
       },
       backgroundImage: {
-        'my-photo': "url('/src/img/photo.jpg')",
-        'calc': "url('/src/img/calc.png')",
-        'calc_react': "url('/src/img/calc_react.png')",
-        'lavka': "url('/src/img/lavka.png')",
-        'memory': "url('/src/img/memory.png')",
-        'architect': "url('/src/img/architect.png')",
-        'cv': "url('/src/img/cv.jpg')",
-        'weather': "url('/src/img/weather.png')",
-        'newbegin': "url('/src/img/newbegin.png')",
-        'cars': "url('/src/img/cars.png')",
-        'messenger': "url('/src/img/messenger.png')"
+        'my-photo': "url('/src/img/photo/photo.jpg')",
+        'calc': "url('/src/img/projects/calc.png')",
+        'calc_react': "url('/src/img/projects/calc_react.png')",
+        'lavka': "url('/src/img/projects/lavka.png')",
+        'memory': "url('/src/img/projects/memory.png')",
+        'architect': "url('/src/img/projects/architect.png')",
+        'cv': "url('/src/img/projects/cv.png')",
+        'weather': "url('/src/img/projects/weather.png')",
+        'newbegin': "url('/src/img/projects/newbegin.png')",
+        'cars': "url('/src/img/projects/cars.png')",
+        'messenger': "url('/src/img/projects/messenger.png')"
       },
       keyframes: {
         ringEffect: {

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { activeBtn, contactPicture } from "../data/icons";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactPage = ({openModalAbout, modal}) => {
+
+    const [verified, setVerified] = useState(false);
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -11,7 +14,7 @@ const ContactPage = ({openModalAbout, modal}) => {
     const sendMail = (evt) => {
         evt.preventDefault();
         
-        fetch('http://localhost:3001/api', {
+        fetch('http://localhost:3000/api', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -36,10 +39,11 @@ const ContactPage = ({openModalAbout, modal}) => {
             console.error(error);
             openModalAbout('contact', null, 'error');
         })
+        setVerified(false);
     }
 
     return (
-        <div className={`${modal ? '-z-10' : 'z-0'} duration-300 flex flex-col text-neutral-600 dark:text-neutral-400 relative w-[1180px] h-full xl-a:mx-10 md-a:ml-10 md-a:mr-28 mobile:mx-10 mx-2 animate-[startPages_0.5s_forwards]`}>
+        <div className={`${modal ? '-z-10' : 'z-0'} duration-300 flex flex-col text-neutral-600 dark:text-neutral-400 relative w-[1180px] min-h-screen xl-a:mx-10 md-a:ml-10 md-a:mr-28 mobile:mx-10 mx-2 animate-[startPages_0.5s_forwards]`}>
             <section className="flex sm:h-52 h-32 mobile:justify-center items-center uppercase font-Commissioner mb-8">
                 <h1 className="mobile:text-[2.5rem] sm:text-[4rem] text-4xl font-extrabold">Напишите <strong className="text-[#ffa500]">мне</strong></h1>
                 <h1 className="absolute text-5xl mobile:text-7xl sm:text-8xl md:text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Связаться</h1>
@@ -68,17 +72,17 @@ const ContactPage = ({openModalAbout, modal}) => {
                         <a href="tg://resolve?domain=@it_to_move" target="_blank" rel="noopener noreferrer"
                             className="flex justify-center items-center rounded-full size-11 p-3 bg-neutral-200 dark:bg-neutral-700 duration-300 cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-600"
                         >
-                            <img className="opacity-60 dark:invert duration-300" src={require('../img/tg.png')} alt="Telegram" />
+                            <img className="opacity-60 dark:invert duration-300" src={require('../img/icons/tg.png')} alt="Telegram" />
                         </a>
                         <a href="https://vk.com/doberman242" target="_blank" rel="noopener noreferrer"
                             className="flex justify-center items-center rounded-full size-11 p-3 bg-neutral-200 dark:bg-neutral-700 duration-300 cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-600"
                         >
-                            <img className="opacity-60 dark:invert duration-300" src={require('../img/vk.png')} alt="VK" />
+                            <img className="opacity-60 dark:invert duration-300" src={require('../img/icons/vk.png')} alt="VK" />
                         </a>
                         <a href="https://github.com/doberman24" target="_blank" rel="noopener noreferrer"
                             className="flex justify-center items-center rounded-full size-11 p-3 bg-neutral-200 dark:bg-neutral-700 duration-300 cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-600"
                         >
-                            <img className="opacity-60 dark:invert duration-300" src={require('../img/github.png')} alt="GitHub" />
+                            <img className="opacity-60 dark:invert duration-300" src={require('../img/icons/github.png')} alt="GitHub" />
                         </a>
                     </div>
                 </article>
@@ -112,10 +116,14 @@ const ContactPage = ({openModalAbout, modal}) => {
                                 value={message} onChange={(e) => setMessage(e.target.value)}
                             ></textarea>
                         </fieldset>
-                        <button className="fillMoreBtn effectFillMoreBtn self-center md-a:self-start relative flex bg-transparent border border-[#ffa500] h-14 w-60 justify-center items-center rounded-full mt-5 sm:mt-8">
+                        <button disabled={!verified} className={`fillMoreBtn ${verified ? 'effectFillMoreBtn' : ''} disabled:opacity-50 self-center md-a:self-start relative flex bg-transparent border border-[#ffa500] h-14 w-60 justify-center items-center rounded-full mt-5 sm:mt-8`}>
                             <span className="font-Commissioner rounded-full uppercase font-bold flex flex-grow justify-center items-center h-full text-sm z-[1] focus:outline-none">Отправить</span>
-                            <span className="flex cursor-pointer rounded-full justify-center items-center p-4 bg-[#ffa500] z-[1]">{activeBtn.send}</span>
+                            <span className={`flex ${verified ? 'cursor-pointer' : ''} rounded-full justify-center items-center p-4 bg-[#ffa500] z-[1]`}>{activeBtn.send}</span>
                         </button>
+                        <ReCAPTCHA
+                            sitekey="6LeqyqgpAAAAAM2-s8uU3I7rF9re0K4wQZJp7xeg"
+                            onChange={() => setVerified(true)}
+                        />
                     </form>
                 </article>
             </section>
