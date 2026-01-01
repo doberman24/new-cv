@@ -10,16 +10,19 @@ const AboutPage = ({pageModal}) => {
           <h1 className="mobile:text-[4rem] text-4xl font-extrabold">Обо <strong className="text-[#ffa500]">мне</strong></h1>
           <h1 className="absolute text-5xl mobile:text-7xl sm:text-[7rem] text-neutral-200 dark:text-neutral-800 duration-300 -z-10 font-extrabold">Резюме</h1>
       </section>
-      <section className="flex flex-col w-full text-sm mobile:text-base md:text-[1.1rem]">
+      <section className="flex flex-col w-full text-sm mobile:text-base md:text-[1.2rem]">
           <article className="font-philosopher uppercase">
-              <h2 className="text-2xl font-semibold">Самушенков Анатолий Игоревич</h2>
-              <h4 className="mt-2 mb-5 text-xl font-normal text-neutral-400 dark:text-neutral-600 duration-300">WEB разработчик</h4>
+              <h2 className="text-2xl font-semibold">Самушенков Анатолий</h2>
+              <h4 className="mt-2 mb-5 text-xl font-normal text-neutral-500 dark:text-neutral-600 duration-300">Junior Frontend / Fullstack Developer</h4>
           </article>
-          <article className="md:leading-7 font-medium mb-5">
-              Привет! Меня зовут Анатолий, и я являюсь инженером технической поддержки в хостинговой компании. В рамках своей текущей должности занимаюсь переносом сайтов внутри нашей площадки, а также помощью в переносе и запуске проектов со сторонних ресурсов. Обладаю опытом работы с различными платформами и инструментами, что позволяет эффективно решать поставленные задачи. Но помимо этого, изучаю и развиваюсь в сфере фронтенд-разработки и ищу возможности для реализации своих навыков в данной области. Моя цель — стать профессиональным фронтенд-разработчиком и создавать удобные и функциональные интерфейсы для веб-приложений и сайтов. 
-          </article>
+          <ul className="flex flex-col gap-5 md:leading-7 font-medium mb-7">
+            <li>Работаю инженером технической поддержки хостинговой компании. Занимаюсь переносом и запуском веб-проектов на Linux, взаимодействую с различными CMS и самописными PHP / JS-решениями.</li>
+            <li>В рамках работы использую внутренний инструмент, разработанный мной (Vue + REST API + Node.js), который автоматизирует получение технической информации о проектах при переносе и запуске.</li>
+            <li>Параллельно разрабатываю собственные веб-приложения с фокусом на frontend и интеграцию с backend. Основной стек: React, JavaScript, REST API, Node.js, MongoDB.</li>
+            <li>Ориентирован на позицию junior frontend или junior fullstack разработчика.</li>
+          </ul>
           <article>
-            <ul className="flex flex-col md:h-32 flex-wrap leading-8 sm:leading-10">
+            <ul className="flex gap-x-80 md:h-15 mb-8 flex-wrap leading-8 sm:leading-10">
               {Object.entries(personalData).map(([key, value]) => 
                 <li className="flex md:text-base md:leading-9" key={key}>
                   <span className="w-36 md-a:w-40 font-bold text-neutral-800 dark:text-neutral-300 duration-300">{key}:</span>
@@ -105,23 +108,50 @@ const AboutPage = ({pageModal}) => {
                 <span className="uppercase">ООО Beget</span>
               </div> 
               <div className="mt-2">
-                <strong className="font-medium text-[0.925rem] mobile:text-base sm:text-[1.1rem]">
-                  <b className="uppercase font-medium">Специализация:</b> перенос сайтов
+                <strong className="font-medium text-[0.925rem] underline decoration underline-offset-4 mobile:text-base sm:text-[1.1rem]">
+                  <b className="uppercase font-medium">Специализация:</b> перенос и запуск веб-проектов
                 </strong>
-                <p className="text-sm mobile:text-[0.925rem] sm:text-base mobile:leading-6 mt-2">Выполнение переносов сайтов, которые поддерживают наш стек технологий, по запросу клиентов. Начиная от самых распространенных CMS, таких как Wordpress, Bitrix, Joomla, ModX и т.д., и заканчивая различными проектами с использованием php-фреймворков. А также разворачивание/перенос проектов на NodeJS, python-фреймворков и любых кастомных проектов </p>
+                <ul className="flex flex-col gap-2 text-sm mobile:text-[0.925rem] sm:text-base mobile:leading-6 mt-2">
+                  <li>— Перенос и запуск веб-сайтов на хостинговой платформе под Linux</li>
+                  <li>— Работа с популярными CMS (WordPress, Bitrix, Joomla, MODX)</li>
+                  <li>— Запуск и перенос проектов на PHP-фреймворках</li>
+                  <li>— Разворачивание и сопровождение проектов на Node.js и Python</li>
+                  <li>— Работа с кастомными веб-проектами</li>
+                </ul>
               </div>
             </li>
             <li className="xl:pl-16 pl-5 mobile:pl-10 border-l-2 border-l-slate-300 dark:border-l-slate-700 duration-300 relative mb-10 mobile:mb-16 pr-0 sm:pr-8">
               <div className="absolute bg-[#ffa500] p-2 mobile:p-3 rounded-full -left-[16px] mobile:-left-[22px]">{experienceEducationPicture.exp}</div>
-              <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-xs mobile:text-sm leading-4 rounded-full mb-1.5">2014 - 2021</div>
-              <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[0.925] mobile:text-base sm:text-[1.1rem] mb-5 leading-7">
-                <strong className="text-base mobile:[1.1rem] sm:text-xl">Строитель кораблей - </strong>
-                <span className="uppercase">ПАО Выборгский судостроительный завод</span>
+              <div className="inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-xs mobile:text-sm leading-4 rounded-full mb-1.5">В свободное время</div>
+              <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[0.925] mobile:text-base sm:text-[1.1rem]">
+                <strong className="text-base mobile:[1.1rem] sm:text-xl">Работа на фрилансе + pet-проекты</strong>
+              </div> 
+              <div className="mt-2 mb-3 pb-3 border-b border-b-slate-300 dark:border-b-slate-700">
+                <strong className="font-medium text-[0.925rem] mobile:text-base sm:text-[1.1rem]">
+                  <b className="uppercase underline decoration underline-offset-4 font-medium">Веб-проект для управления подписками:</b>
+                  <a href="https://smart-subscriptions.ru" target="_blank" rel="noopener noreferrer"> https://smart-subscriptions.ru</a>
+                </strong>
+                <ul className="flex flex-col gap-2 text-sm mobile:text-[0.925rem] sm:text-base mobile:leading-6 mt-2">
+                  <li>— Разработка полнофункционального веб-приложения с фокусом на frontend и взаимодействие с backend</li>
+                  <li>— Клиентская часть: React, управление состоянием, работа с формами и пользовательскими сценариями</li>
+                  <li>— Серверная часть: Node.js, REST API, реализация JWT-авторизации</li>
+                  <li>— Работа с базой данных MongoDB</li>
+                  <li>— Проект развернут и работает в продакшене, регулярно дорабатывается</li>
+                  <li><b className="uppercase font-bold">Стек: </b>React, JavaScript, Node.js, REST API, MongoDB, JWT</li>
+                </ul>
               </div>
-              <div className="mt-2 inline-block bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300 duration-300 px-2 py-0.5 text-xs mobile:text-sm leading-4 rounded-full mb-1.5">2008 - 2014</div>
-              <div className="mt-2 text-neutral-800 dark:text-neutral-400 duration-300 font-medium text-[1.1rem]">
-                <strong className="text-base mobile:[1.1rem] sm:text-xl">Кабельщик - </strong>
-                <span className="uppercase">ОАО РЖД</span>
+              <div className="mt-2 mb-7">
+                <strong className="font-medium text-[0.925rem] mobile:text-base sm:text-[1.1rem]">
+                  <b className="uppercase underline decoration underline-offset-4 font-medium">Внутренний инструмент для рабочих задач:</b> (используется в рамках текущей деятельности, без публичного доступа)
+                </strong>
+                <ul className="flex flex-col gap-2 text-sm mobile:text-[0.925rem] sm:text-base mobile:leading-6 mt-2">
+                  <li>— Разработка web-инструмента для автоматизации получения технической информации о доменах и сайтах при переносе проектов</li>
+                  <li>— Фронтенд: Vue.js</li>
+                  <li>— Бэкенд: Node.js, REST API</li>
+                  <li>— Использование SSH-подключений для сбора данных с серверов</li>
+                  <li>— Инструмент применяется в реальной рабочей среде и используется на постоянной основе</li>
+                  <li><b className="uppercase font-bold">Стек: </b>Vue.js, Node.js, REST API, SSH</li>
+                </ul>
               </div> 
             </li>
           </ul>

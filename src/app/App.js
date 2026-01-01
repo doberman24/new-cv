@@ -13,7 +13,7 @@ function App() {
   const [page, setPage] = useState(currentPage.homePage)
   const [modal, setModal] = useState(false);
   const [pageModal, setPageModal] = useState('home')
-  const [mainTheme, setMainTheme] = useState('dark');
+  const [mainTheme, setMainTheme] = useState('');
   const [selectProject, setSelectProject] = useState({});
 
   function getPage(page) {

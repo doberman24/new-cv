@@ -1,11 +1,12 @@
 import { modalClose, modalDescriptionProject } from "../../data/icons";
 import AboutPage from "../AboutPage";
+import moveImage from "../../img/projects/move.png"
 
 const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
   return (
     <div className={`fixed ${handleModul ? 'opacity-100 z-[1]' : 'opacity-0 z-0'} duration-300 size-full flex justify-center items-center`}>
       <div className="absolute dark:bg-neutral-800 bg-black size-full opacity-70"></div>
-      <div className={`bg-white dark:bg-neutral-900 z-0 my-16 mx-3 mobile:mx-5 md-a:m-16 relative ${pageModal === 'home' ? 'w-[1280px] min-w-[200px] 2xl-a:h-3/4 h-5/6 rounded-md' : pageModal === 'portfolio' ? 'w-[700px] h-[450px] mobile:h-[600px] rounded-2xl' : ' h-48 w-96 rounded-2xl'}`}>
+      <div className={`bg-white dark:bg-neutral-900 z-0 my-16 mx-3 mobile:mx-5 md-a:m-16 relative ${pageModal === 'home' ? 'w-[1280px] min-w-[200px] 2xl-a:h-3/4 h-5/6 rounded-md' : pageModal === 'portfolio' ? 'w-[750px] h-[480px] mobile:h-[600px] rounded-2xl' : ' h-48 w-96 rounded-2xl'}`}>
         <div className="absolute size-full box-content pt-14 md-a:pt-10 md-a:pr-14 bottom-0">
           <button className="absolute text-neutral-300 border-neutral-300 dark:text-neutral-500 dark:border-neutral-500 top-0 right-0 border-4 rounded-full p-2"
             onClick={closeModal}
@@ -29,32 +30,32 @@ const Modal = ({handleModul, closeModal, pageModal, selectProject}) => {
 const PortfolioModal = ({selectProject}) => {
   return (
     <section className="flex justify-center items-center size-full rounded-2xl z-0">
-      <article className="flex flex-col items-center justify-between size-11/12 rounded-xl">
+      <article className="flex flex-col items-center gap-2 size-11/12 rounded-xl">
         <div className="flex flex-col items-center">
           <h1 className="text-xl mobile:text-2xl sm:text-4xl text-[#ffa500] tracking-wider font-Commissioner mobile:mt-5 uppercase font-bold">{selectProject.name}</h1>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 font-jura my-2 mobile:my-5 text-[0.9rem] text-neutral-600 dark:text-neutral-400">
-            <li className="mobile:mb-1.5 flex items-center">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 font-jura my-2 mobile:my-5 text-[0.7rem] mobile:text-[0.9rem] text-neutral-600 dark:text-neutral-400">
+            <li className="mobile:mb-1.5 flex ">
               <span className="mr-3">{modalDescriptionProject.type}</span>
               <span className="mr-3">Проект: </span>
               <b className="text-neutral-800 dark:text-neutral-300 duration-300">{selectProject.type}</b>
             </li>
-            <li className="mobile:mb-1.5 flex items-center">
+            <li className="mobile:mb-1.5 flex ">
               <span className="mr-3">{modalDescriptionProject.stek}</span>
               <span className="mr-3">Стек: </span>
               <b className="text-neutral-800 dark:text-neutral-300">{selectProject.stek}</b>
             </li>
-            <li className="mobile:mb-1.5 flex items-center">
+            <li className="mobile:mb-1.5 flex ">
               <span className="mr-3">{modalDescriptionProject.preview}</span>
               <span className="mr-3">Перейти: </span>
               <a
                 className="text-[#ffa500] flex font-bold" 
-                href={`https://${selectProject.preview}`}
+                href={selectProject.preview.includes('Без') ? moveImage : selectProject.preview}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {selectProject.preview}</a>
             </li>
-            <li className="mobile:mb-1.5 flex items-center">
+            <li className="mobile:mb-1.5 flex">
               <span className="mr-3">{modalDescriptionProject.purpose}</span>
               <span className="mr-3">Назначение: </span>
               <b className=" text-neutral-800 dark:text-neutral-300 duration-300">{selectProject.purpose}</b>
@@ -65,7 +66,15 @@ const PortfolioModal = ({selectProject}) => {
             </li>
           </ul>
         </div>
-        <div className={`w-full h-40 mobile:h-64 sm:h-[300px] rounded-xl ${selectProject.picUrl} bg-cover bg-center`}></div>
+        {
+          selectProject.preview.includes('Без') ?
+          <a className={`w-full h-full rounded-xl ${selectProject.picUrl} bg-cover bg-center`}
+            href={moveImage}
+            target="_blank"
+            rel="noopener noreferrer"
+          ></a> :
+          <div className={`w-full h-full rounded-xl ${selectProject.picUrl} bg-cover bg-center`}></div>
+        }
       </article>
     </section>
   )

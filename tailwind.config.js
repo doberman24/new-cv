@@ -22,16 +22,13 @@ module.exports = {
       },
       backgroundImage: {
         'my-photo': "url('/src/img/photo/photo.jpg')",
-        'calc': "url('/src/img/projects/calc.png')",
+        'smart_subscriptions': "url('/src/img/projects/smart_subscriptions.png')",
+        'move': "url('/src/img/projects/move.png')",
         'calc_react': "url('/src/img/projects/calc_react.png')",
-        'lavka': "url('/src/img/projects/lavka.png')",
         'memory': "url('/src/img/projects/memory.png')",
-        'architect': "url('/src/img/projects/architect.png')",
         'cv': "url('/src/img/projects/cv.png')",
         'weather': "url('/src/img/projects/weather.png')",
-        'newbegin': "url('/src/img/projects/newbegin.png')",
         'cars': "url('/src/img/projects/cars.png')",
-        'messenger': "url('/src/img/projects/messenger.png')"
       },
       keyframes: {
         ringEffect: {
