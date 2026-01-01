@@ -1,42 +1,40 @@
 # Portfolio Website
 
-Персональный сайт-портфолио, демонстрирующий мои проекты, навыки и опыт в веб-разработке.
+Personal portfolio website showcasing my projects, skills, and experience in web development.
 
-Сайт используется как онлайн-резюме и витрина pet-проектов.
+## Description
 
-## Описание
+The project is implemented as a single-page application.
+The website includes:
+- brief personal information
+- work and development experience
+- project examples
+- used technology stack
 
-Проект реализован как одностраничное веб-приложение.
-На сайте представлены:
-- краткая информация обо мне
-- опыт работы и разработки
-- примеры реализованных проектов
-- используемый стек технологий
+The interface focuses on simplicity, readability, and easy navigation.
 
-Интерфейс ориентирован на простоту, читаемость и быструю навигацию.
-
-## Технологии
+## Technologies
 
 - React
 - JavaScript (ES6+)
 - Tailwind CSS
 
-## Функциональность
+## Functionality
 
-- SPA-архитектура
-- Адаптивная вёрстка
-- Раздел с проектами и фильтрацией
-- Модальные окна с описанием проектов
-- Оптимизация под различные разрешения экрана
+- SPA architecture
+- Responsive layout
+- Projects section with filtering
+- Modal windows with project descriptions
+- Optimization for different screen resolutions
 
-## Адрес
+## Website
 
 https://cv.lixit.ru
 
-## Статус проекта
+## Project status
 
-Проект используется как актуальное портфолио и периодически обновляется.
+The project is used as an up-to-date portfolio and is updated periodically.
 
-## Автор
+## Author
 
-Анатолий Самушенков
+Anatoly Samushenkov
